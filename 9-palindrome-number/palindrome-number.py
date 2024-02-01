@@ -1,5 +1,3 @@
-import math
-
 class Solution(object):
     def isPalindrome(self, x):
         if x < 0:
@@ -9,10 +7,9 @@ class Solution(object):
             return True
 
         if x > 0:
-            digits = int(math.floor(math.log10(x)) + 1)
             temp = x
             reversed = 0
-            for i in range(digits):        
+            while temp != 0:        
                 lastDigit = temp % 10
                 reversed = reversed * 10 + lastDigit
                 temp //= 10

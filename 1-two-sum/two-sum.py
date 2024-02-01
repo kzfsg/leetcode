@@ -1,7 +1,10 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        for x in range(len(nums)):
-            for y in range(x + 1, len(nums)):
-                if nums[x] + nums[y] == target:
-                    return [x, y]
+        hashtable = {}
+        for index, num in enumerate(nums):
+            complement = target - nums[index]
+            if complement in hashtable:
+                return [hashtable[complement], index]
+            hashtable[num] = index
+
         

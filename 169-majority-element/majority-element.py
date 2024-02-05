@@ -1,18 +1,14 @@
 class Solution(object):
     def majorityElement(self, nums):
-        element = None
-        elementCount = 0
-
+        hashtable = {}
         for x in nums:
-            if elementCount == 0:
-                element = x
-            if element == x:
-                elementCount += 1
-            else:
-                elementCount -= 1
-
-        return element
-
+            if x not in hashtable:
+                hashtable[x] = 1
+            elif x in hashtable:
+                hashtable[x] += 1
+            
+            if hashtable[x] > len(nums) / 2:
+                return x
 
             
 

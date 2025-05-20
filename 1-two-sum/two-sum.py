@@ -1,10 +1,17 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        hashtable = {}
-        for index, num in enumerate(nums):
-            complement = target - nums[index]
-            if complement in hashtable:
-                return [hashtable[complement], index]
-            hashtable[num] = index
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        dict = {}
+        for i, num in enumerate(nums):
+            if target - num in dict:
+                return [dict[target - num], i]
+            dict[num] = i
+
+    # stores index as value and num as key
+    # finds complement
 
         

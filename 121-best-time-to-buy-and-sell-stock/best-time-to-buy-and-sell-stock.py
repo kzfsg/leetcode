@@ -1,29 +1,17 @@
 class Solution(object):
     def maxProfit(self, prices):
-        buy = 0
-        sell = 1
-        profit = 0
-        currentProfit = 0
-        while buy < (len(prices) - 1) and sell < len(prices):
-            profit = prices[sell] - prices[buy]
-            if profit == 0:
-                sell += 1
-            elif profit < 0:
-                buy += 1
-            elif profit > 0:
-                if currentProfit == profit:
-                    sell += 1
-                elif currentProfit > profit:
-                    sell += 1
-                elif currentProfit < profit:
-                    currentProfit = profit
-                    sell += 1
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        min_price  = float('inf')
+        max_profit = 0
 
-        return currentProfit
+        for index, price in enumerate(prices):
+            min_price = min(min_price, price)
+            max_profit = max(max_profit, price - min_price)
+        
+        return max_profit
 
-
-
-
-# use while loop to iterate through prices, initialise variables which keep track of index which is used to compare prices
-            
+          
         
